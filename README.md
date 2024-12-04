@@ -17,6 +17,26 @@ LiteFlow is a revolutionary web framework designed to make web development faste
 
 ![LiteFlow Blueprint](docs/blueprint.svg)
 
+## Package Structure 📦
+
+![Package Structure](docs/Package%20Structure.svg)
+
+## Documentation Structure 📚
+
+![Documentation Structure](docs/documentation%20_structure.svg)
+
+## Development Roadmap 🛣
+
+![Development Roadmap](docs/evelopment_roadmap.svg)
+
+### Authentication Flow 🔐
+
+![Authentication Flow](docs/authentication_flow.svg)
+
+### Database Integration 💾
+
+![Database Integration](docs/database_integration.svg)
+
 ## Why LiteFlow? 🤔
 
 ### No More Framework Pain Points
@@ -166,26 +186,6 @@ lite deploy --docker
 ## Contributing 🤝
 
 We love our contributors! Check out our [Contributing Guide](CONTRIBUTING.md) to get started.
-
-## Package Structure 📦
-
-![Package Structure](docs/Package%20Structure.svg)
-
-## Documentation Structure 📚
-
-![Documentation Structure](docs/documentation%20_structure.svg)
-
-## Development Roadmap 🛣
-
-![Development Roadmap](docs/evelopment_roadmap.svg)
-
-### Authentication Flow 🔐
-
-![Authentication Flow](docs/authentication_flow.svg)
-
-### Database Integration 💾
-
-![Database Integration](docs/database_integration.svg)
 
 ## Directory Structure 📁
 
