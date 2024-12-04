@@ -21,7 +21,6 @@ export {
   DialogDescription,
 } from "./components/ui/dialog";
 
-// Export new components
 export {
   Select,
   SelectGroup,
@@ -46,6 +45,9 @@ export {
   type ToastProps,
   type ToastActionElement,
 } from "./components/ui/toast";
+
+export { RadioGroup, RadioGroupItem } from "./components/ui/radio-group";
+export { Switch } from "./components/ui/switch";
 
 // Export utilities
 export * from "./lib/utils";
