@@ -113,6 +113,38 @@ export { Badge, type BadgeProps } from "./components/ui/badge";
 
 export { Breadcrumbs, BreadcrumbItem } from "./components/ui/breadcrumb";
 
+// New component exports
+export { Alert, AlertTitle, AlertDescription } from "./components/ui/alert";
+
+export {
+  AlertDialog,
+  AlertDialogPortal,
+  AlertDialogOverlay,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from "./components/ui/alert-dialog";
+
+export { AspectRatio } from "./components/ui/aspect-ratio";
+
+export { Avatar, AvatarImage, AvatarFallback } from "./components/ui/avatar";
+
+export { Calendar } from "./components/ui/calendar";
+
+export {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+  type CarouselApi,
+} from "./components/ui/carousel";
+
 // Export utilities
 export * from "./lib/utils";
 
