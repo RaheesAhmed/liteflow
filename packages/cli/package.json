@@ -1,0 +1,42 @@
+{
+  "name": "@liteflow/cli",
+  "version": "0.1.0",
+  "description": "World's fastest full-stack framework CLI",
+  "type": "module",
+  "bin": {
+    "liteflow": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src --ext .ts",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "liteflow",
+    "cli",
+    "framework",
+    "vite",
+    "react",
+    "fullstack"
+  ],
+  "author": "LiteFlow Team",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "create-vite": "^5.1.0",
+    "ora": "^7.0.1",
+    "prompts": "^2.4.2",
+    "picocolors": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "@types/prompts": "^2.4.9",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "eslint": "^8.55.0",
+    "rimraf": "^5.0.5",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  }
+}
