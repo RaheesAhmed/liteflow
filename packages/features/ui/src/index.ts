@@ -102,6 +102,17 @@ export {
   FormField,
 } from "./components/ui/form";
 
+export {
+  Sidebar,
+  SidebarHeader,
+  SidebarContent,
+  SidebarFooter,
+} from "./components/ui/sidebar";
+
+export { Badge, type BadgeProps } from "./components/ui/badge";
+
+export { Breadcrumbs, BreadcrumbItem } from "./components/ui/breadcrumb";
+
 // Export utilities
 export * from "./lib/utils";
 
