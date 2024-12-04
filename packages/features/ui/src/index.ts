@@ -65,6 +65,43 @@ export {
   TooltipArrow,
 } from "./components/ui/tooltip";
 
+export {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from "./components/ui/popover";
+
+export {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuGroup,
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuRadioGroup,
+} from "./components/ui/dropdown-menu";
+
+export { Label } from "./components/ui/label";
+
+export {
+  useFormField,
+  Form,
+  FormItem,
+  FormLabel,
+  FormControl,
+  FormDescription,
+  FormMessage,
+  FormField,
+} from "./components/ui/form";
+
 // Export utilities
 export * from "./lib/utils";
 
