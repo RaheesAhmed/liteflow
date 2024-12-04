@@ -373,6 +373,163 @@ import {
 </TooltipContent>
 ```
 
+### Alert
+
+A component that displays a callout for user attention.
+
+```tsx
+import { Alert, AlertTitle, AlertDescription } from "@liteflow/ui";
+
+<Alert>
+  <AlertTitle>Success</AlertTitle>
+  <AlertDescription>Your changes have been saved.</AlertDescription>
+</Alert>
+
+<Alert variant="destructive">
+  <AlertTitle>Error</AlertTitle>
+  <AlertDescription>Something went wrong.</AlertDescription>
+</Alert>
+```
+
+Props:
+
+- `variant`: "default" | "destructive" | "success" | "warning" | "info"
+- `className`: Additional CSS classes
+
+### Alert Dialog
+
+A modal dialog that interrupts the user with important content and expects a response.
+
+```tsx
+import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from "@liteflow/ui";
+
+<AlertDialog>
+  <AlertDialogTrigger>Delete Account</AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+      <AlertDialogDescription>
+        This action cannot be undone.
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+      <AlertDialogAction>Delete</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>;
+```
+
+### Aspect Ratio
+
+A component that maintains a consistent aspect ratio.
+
+```tsx
+import { AspectRatio } from "@liteflow/ui";
+
+<AspectRatio ratio={16 / 9}>
+  <img src="..." alt="..." />
+</AspectRatio>;
+```
+
+Props:
+
+- `ratio`: number (default: 1)
+- `className`: Additional CSS classes
+
+### Avatar
+
+A component that represents a user with an image and fallback.
+
+```tsx
+import { Avatar, AvatarImage, AvatarFallback } from "@liteflow/ui";
+
+<Avatar>
+  <AvatarImage src="..." alt="..." />
+  <AvatarFallback>JD</AvatarFallback>
+</Avatar>;
+```
+
+Props:
+
+- `className`: Additional CSS classes
+- `AvatarImage`: Accepts standard img props
+- `AvatarFallback`: Displays when image fails to load
+
+### Calendar
+
+A date picker component with various selection modes.
+
+```tsx
+import { Calendar } from "@liteflow/ui";
+
+<Calendar
+  mode="single"
+  selected={date}
+  onSelect={setDate}
+  className="rounded-md border"
+/>;
+```
+
+Props:
+
+- `mode`: "single" | "multiple" | "range"
+- `selected`: Date | Date[] | DateRange
+- `onSelect`: (date: Date | Date[] | DateRange) => void
+- `className`: Additional CSS classes
+- `showOutsideDays`: boolean
+
+### Carousel
+
+A slideshow component for cycling through elements.
+
+```tsx
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@liteflow/ui";
+
+<Carousel>
+  <CarouselContent>
+    <CarouselItem>Slide 1</CarouselItem>
+    <CarouselItem>Slide 2</CarouselItem>
+    <CarouselItem>Slide 3</CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+</Carousel>;
+```
+
+Props:
+
+- `orientation`: "horizontal" | "vertical"
+- `opts`: CarouselOptions
+- `plugins`: CarouselPlugin[]
+- `setApi`: (api: CarouselApi) => void
+- `className`: Additional CSS classes
+
+Features:
+
+- Keyboard navigation
+- Touch/swipe support
+- Responsive design
+- Customizable controls
+- Multiple orientations
+- Plugin support
+
 ## Utility Functions
 
 The package also includes several utility functions:
