@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120">
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="primary-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2563EB"/>
+      <stop offset="100%" style="stop-color:#60A5FA"/>
+    </linearGradient>
+    <linearGradient id="glow-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#60A5FA;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="text-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E40AF"/>
+      <stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Main Logo Group -->
+  <g transform="translate(30, 50)">
+    <!-- The flowing symbol -->
+    <path 
+      d="M0,0 
+         C10,-15 20,15 30,0 
+         S50,-15 60,0 
+         S80,15 90,0"
+      fill="none" 
+      stroke="url(#primary-gradient)" 
+      stroke-width="6" 
+      stroke-linecap="round"/>
+    
+    <!-- Dot with glow -->
+    <circle cx="105" cy="-18" r="6" fill="url(#primary-gradient)"/>
+    <circle cx="105" cy="-18" r="8" fill="url(#glow-gradient)"/>
+
+    <!-- Text "Lite" -->
+    <text x="120" y="8" 
+          font-family="Inter, -apple-system, system-ui, sans-serif" 
+          font-size="42" 
+          font-weight="300"
+          letter-spacing="0"
+          fill="#64748B">
+      <tspan font-weight="200">lite</tspan>
+    </text>
+
+    <!-- Text "Flow" -->
+    <text x="190" y="8" 
+          font-family="JetBrains Mono, monospace" 
+          font-size="42" 
+          font-weight="700"
+          letter-spacing="-1"
+          fill="url(#text-gradient)">
+      Flow
+    </text>
+
+    <!-- Slogan -->
+    <text x="120" y="35" 
+          font-family="Inter, -apple-system, system-ui, sans-serif" 
+          font-size="14" 
+          font-weight="500"
+          letter-spacing="0.5"
+          fill="#94A3B8">
+      Build without boundaries
+    </text>
+  </g>
+</svg>
