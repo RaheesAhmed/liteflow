@@ -187,20 +187,6 @@ lite deploy --docker
 
 We love our contributors! Check out our [Contributing Guide](CONTRIBUTING.md) to get started.
 
-## Directory Structure 📁
-
-```text
-liteflow/
-├── packages/
-│   ├── core/                 # Core framework implementation
-│   ├── features/            # Built-in feature packages
-│   ├── tools/              # Development tools
-│   └── deploy/             # Deployment systems
-├── examples/               # Example applications
-├── docs/                  # Documentation
-└── templates/            # Project templates
-```
-
 ## License 📄
 
 LiteFlow is [MIT licensed](LICENSE).
