@@ -7,6 +7,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Discord](https://img.shields.io/discord/1234567890)](https://discord.gg/liteflow)
 
+![LiteFlow Logo](logo.svg)
+
 LiteFlow is a revolutionary web framework designed to make web development faster, simpler, and more enjoyable. Built with modern development practices in mind, it combines the best features of existing frameworks while eliminating their pain points.
 
 ## Architecture Overview 🏗
