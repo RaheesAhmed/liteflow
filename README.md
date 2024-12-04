@@ -171,11 +171,11 @@ lite deploy --docker
 
 ## Community & Support 👥
 
-- [Documentation](https://docs.liteflow.dev)
-- [Discord Community](https://discord.gg/liteflow)
-- [GitHub Discussions](https://github.com/liteflow/liteflow/discussions)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/liteflow)
-- [Twitter](https://twitter.com/liteflow)
+- [Documentation](https://docs.liteflow.dev) (Coming Soon)
+- [Discord Community](https://discord.gg/liteflow) (Coming Soon)
+- [GitHub Discussions](https://github.com/liteflow/liteflow/discussions) (Coming Soon)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/liteflow) (Coming Soon)
+- [Twitter](https://twitter.com/liteflow) (Coming Soon)
 
 ## Performance Comparison 📊
 
