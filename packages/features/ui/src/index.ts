@@ -48,6 +48,22 @@ export {
 
 export { RadioGroup, RadioGroupItem } from "./components/ui/radio-group";
 export { Switch } from "./components/ui/switch";
+export { Tabs, TabsList, TabsTrigger, TabsContent } from "./components/ui/tabs";
+
+export {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "./components/ui/accordion";
+
+export {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+  TooltipArrow,
+} from "./components/ui/tooltip";
 
 // Export utilities
 export * from "./lib/utils";
