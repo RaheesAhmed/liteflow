@@ -21,6 +21,32 @@ export {
   DialogDescription,
 } from "./components/ui/dialog";
 
+// Export new components
+export {
+  Select,
+  SelectGroup,
+  SelectValue,
+  SelectTrigger,
+  SelectContent,
+  SelectLabel,
+  SelectItem,
+  SelectSeparator,
+} from "./components/ui/select";
+
+export { Checkbox } from "./components/ui/checkbox";
+
+export {
+  Toast,
+  ToastProvider,
+  ToastViewport,
+  ToastTitle,
+  ToastDescription,
+  ToastClose,
+  ToastAction,
+  type ToastProps,
+  type ToastActionElement,
+} from "./components/ui/toast";
+
 // Export utilities
 export * from "./lib/utils";
 
