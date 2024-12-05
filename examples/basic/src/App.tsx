@@ -17,7 +17,7 @@ import {
   Button,
 } from "@liteflow/ui";
 
-function App() {
+export default function DemoPage() {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [showAlert, setShowAlert] = useState(false);
 
@@ -52,6 +52,11 @@ function App() {
           selected={date}
           onSelect={setDate}
           className="rounded-md border"
+          classNames={{
+            day_selected: "bg-primary text-primary-foreground",
+            day_today: "bg-accent text-accent-foreground",
+            day: "p-3 text-center text-sm leading-none",
+          }}
         />
       </div>
 
@@ -62,15 +67,15 @@ function App() {
           <AlertDialogTrigger asChild>
             <Button variant="default">Open Dialog</Button>
           </AlertDialogTrigger>
-          <AlertDialogContent className="sm:max-w-[425px]">
-            <AlertDialogHeader className="gap-2">
+          <AlertDialogContent>
+            <AlertDialogHeader className="space-y-2">
               <AlertDialogTitle>Are you sure?</AlertDialogTitle>
               <AlertDialogDescription>
                 This action cannot be undone. This will permanently delete your
                 account and remove your data from our servers.
               </AlertDialogDescription>
             </AlertDialogHeader>
-            <AlertDialogFooter className="gap-2">
+            <AlertDialogFooter className="space-x-2">
               <AlertDialogCancel>Cancel</AlertDialogCancel>
               <AlertDialogAction>Continue</AlertDialogAction>
             </AlertDialogFooter>
@@ -89,5 +94,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

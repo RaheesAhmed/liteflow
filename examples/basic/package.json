@@ -11,7 +11,7 @@
     "test:perf": "lighthouse http://localhost:5173 --output-path=./lighthouse-report.html --view"
   },
   "dependencies": {
-    "@liteflow/ui": "file:../../packages/features/ui",
+    "@liteflow/ui": "link:../../packages/features/ui/dist",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

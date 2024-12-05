@@ -4,6 +4,7 @@ import ora from "ora";
 import pc from "picocolors";
 import path from "path";
 import fs from "fs/promises";
+import { copyTemplate, listTemplates } from "../utils/template";
 
 interface CreateOptions {
   template?: string;
@@ -24,6 +25,24 @@ export async function create(name?: string, options?: CreateOptions) {
   if (!name) {
     console.log(pc.red("Project name is required"));
     process.exit(1);
+  }
+
+  // Get template choice
+  const templates = await listTemplates();
+  let templateName = options?.template || "default";
+
+  if (!options?.template) {
+    const response = await prompts({
+      type: "select",
+      name: "template",
+      message: "Select a template",
+      choices: templates.map((t) => ({
+        title: t.name,
+        description: t.description,
+        value: t.name,
+      })),
+    });
+    templateName = response.template;
   }
 
   const spinner = ora("Creating LiteFlow project...").start();
@@ -62,7 +81,9 @@ export async function create(name?: string, options?: CreateOptions) {
     await fs.writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2));
 
     // Copy template files
-    // TODO: Add template files copying logic
+    await copyTemplate(templateName, projectPath, {
+      projectName: name,
+    });
 
     spinner.succeed(pc.green(`Successfully created project ${pc.bold(name)}`));
 

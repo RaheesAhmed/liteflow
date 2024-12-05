@@ -1,0 +1,19 @@
+{
+  "name": "default",
+  "description": "Default LiteFlow template with TypeScript, React, and Vite",
+  "files": [
+    "src/App.tsx",
+    "src/main.tsx",
+    "src/index.css",
+    "src/routes/index.tsx",
+    "src/components/Layout.tsx",
+    "src/lib/api.ts",
+    "src/stores/app.ts",
+    "public/logo.svg",
+    "index.html",
+    "tsconfig.json",
+    "vite.config.ts",
+    "tailwind.config.js",
+    "postcss.config.js"
+  ]
+}
