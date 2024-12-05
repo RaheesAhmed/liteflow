@@ -95,25 +95,29 @@ const banner = `
 `;
 
 console.log(gradient.pastel.multiline(banner));
-console.log(chalk.cyan("Welcome to LiteFlow - The Modern Web Framework\n"));
+console.log(chalk.cyan("Welcome to LiteFlow - Build without boundaries\n"));
 
 program
   .name("create-liteflow-app")
   .description("Create a new LiteFlow application")
-  .version("0.1.4")
+  .version("0.1.5")
   .argument("[directory]", "Directory to create the project in")
   .action(async (directory) => {
     const answers = await inquirer.prompt([
-      {
-        type: "input",
-        name: "projectName",
-        message: "What is your project named?",
-        default: directory || "my-liteflow-app",
-        validate: (input: string) => {
-          if (/^[a-zA-Z0-9-_]+$/.test(input)) return true;
-          return "Project name may only include letters, numbers, underscores and hashes.";
-        },
-      },
+      ...(directory
+        ? []
+        : [
+            {
+              type: "input",
+              name: "projectName",
+              message: "What is your project named?",
+              default: "my-liteflow-app",
+              validate: (input: string) => {
+                if (/^[a-zA-Z0-9-_]+$/.test(input)) return true;
+                return "Project name may only include letters, numbers, underscores and hashes.";
+              },
+            },
+          ]),
       {
         type: "list",
         name: "template",
@@ -162,6 +166,23 @@ program
 
       // Copy template
       await fs.copy(templateDir, projectDir);
+
+      // Copy UI components
+      const uiComponentsDir = path.resolve(
+        __dirname,
+        "../../features/ui/src/components/ui"
+      );
+      const projectUiDir = path.join(projectDir, "src/components/ui");
+
+      if (await fs.pathExists(uiComponentsDir)) {
+        await fs.copy(uiComponentsDir, projectUiDir);
+      } else {
+        console.warn(
+          chalk.yellow(
+            "\nWarning: UI components not found. Some features may not work."
+          )
+        );
+      }
 
       // Update package.json
       const packageJsonPath = path.join(projectDir, "package.json");

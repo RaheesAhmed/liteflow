@@ -1,21 +1,21 @@
 {
   "name": "create-liteflow-app",
-  "version": "0.1.4",
-  "description": "Create LiteFlow apps with one command",
-  "bin": "dist/index.js",
+  "version": "0.2.0",
+  "description": "Create LiteFlow apps with one command - The Modern Web Framework",
+  "type": "module",
+  "bin": {
+    "create-liteflow-app": "dist/index.js"
+  },
   "files": [
     "dist",
-    "templates/**",
-    "bin"
+    "templates"
   ],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "start": "node dist/index.js",
     "lint": "eslint src/**/*.ts",
-    "clean": "rm -rf dist templates/basic",
-    "prepublishOnly": "pnpm run build",
-    "prepack": "node -e \"const fs=require('fs-extra');const path=require('path');fs.removeSync('templates/basic');fs.copySync('../../examples/basic',path.join('templates','basic'),{filter:src=>!src.includes('node_modules')})\""
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "chalk": "^5.3.0",
@@ -37,10 +37,6 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
   "keywords": [
     "liteflow",
     "create-liteflow-app",
@@ -51,7 +47,10 @@
     "web",
     "framework",
     "template",
-    "starter"
+    "starter",
+    "modern",
+    "enterprise",
+    "fullstack"
   ],
   "author": "LiteFlow Team",
   "homepage": "https://liteflow.dev",
