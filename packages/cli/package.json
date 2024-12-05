@@ -1,51 +1,56 @@
 {
-  "name": "create-liteflow-app",
-  "version": "0.2.11",
-  "description": "Create LiteFlow apps with one command - The Modern Web Framework",
-  "type": "commonjs",
+  "name": "@liteflow/cli",
+  "version": "0.1.0",
+  "description": "CLI for LiteFlow framework",
+  "main": "dist/index.js",
   "bin": {
-    "create-liteflow-app": "./dist/index.js"
+    "liteflow": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --dts --format cjs,esm",
+    "dev": "tsup src/index.ts --dts --format cjs,esm --watch",
+    "test": "jest",
+    "prepublishOnly": "npm run build"
   },
   "files": [
     "dist",
     "templates"
   ],
-  "scripts": {
-    "build": "node build.js",
-    "dev": "node build.js --watch",
-    "lint": "eslint src/**/*.ts",
-    "clean": "rimraf dist",
-    "prepublishOnly": "npm run build"
-  },
   "dependencies": {
-    "picocolors": "^1.0.0",
-    "cac": "^6.7.14",
-    "execa": "^8.0.1",
-    "fs-extra": "^11.2.0"
+    "commander": "^11.1.0",
+    "inquirer": "^9.2.12",
+    "ora": "^7.0.1",
+    "chalk": "^5.3.0",
+    "fs-extra": "^11.2.0",
+    "glob": "^10.3.10",
+    "vite": "^5.0.4"
   },
   "devDependencies": {
+    "@types/inquirer": "^9.0.7",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^20.10.4",
-    "esbuild": "^0.19.9",
-    "rimraf": "^5.0.5",
-    "typescript": "^5.3.3"
-  },
-  "engines": {
-    "node": ">=18.0.0"
+    "@types/node": "^20.10.3",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.2"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "access": "public"
   },
   "keywords": [
     "liteflow",
-    "create-liteflow-app",
+    "cli",
+    "framework",
     "react",
     "typescript",
-    "modern",
-    "enterprise",
-    "fullstack"
+    "vite"
   ],
-  "author": "LiteFlow Team",
-  "license": "MIT"
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/liteflow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/liteflow/issues"
+  },
+  "homepage": "https://github.com/yourusername/liteflow#readme"
 }

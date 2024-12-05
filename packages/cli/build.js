@@ -18,9 +18,6 @@ const config = {
   sourcemap: false,
   metafile: true,
   packages: "external",
-  banner: {
-    js: "#!/usr/bin/env node",
-  },
 };
 
 try {
@@ -28,8 +25,8 @@ try {
   esbuild
     .build(config)
     .then((result) => {
-      // Set executable permissions
-      fs.chmodSync("dist/index.js", "755");
+      // Set executable permissions for the wrapper script
+      fs.chmodSync("bin/cli.js", "755");
 
       // Log build stats
       const { outputs } = result.metafile;
