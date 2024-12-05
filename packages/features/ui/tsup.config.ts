@@ -7,23 +7,30 @@ export default defineConfig({
   splitting: false,
   sourcemap: true,
   clean: true,
-  external: ["react", "react-dom"],
-  treeshake: {
-    preset: "smallest",
-  },
+  external: [
+    "react",
+    "react-dom",
+    "@radix-ui/react-alert-dialog",
+    "@radix-ui/react-avatar",
+    "@radix-ui/react-dialog",
+    "@radix-ui/react-slot",
+    "@radix-ui/react-aspect-ratio",
+    "@radix-ui/react-checkbox",
+    "class-variance-authority",
+    "clsx",
+    "tailwind-merge",
+    "lucide-react"
+  ],
+  treeshake: true,
   minify: true,
+  outDir: "dist",
+  platform: "browser",
   esbuildOptions(options) {
-    options.jsx = "automatic";
-    options.jsxImportSource = "react";
-    options.target = "es2020";
-    options.platform = "browser";
-  },
-  loader: {
-    ".css": "css",
-  },
-  outExtension({ format }) {
-    return {
-      js: format === "cjs" ? ".cjs" : ".js",
+    options.banner = {
+      js: '"use client";',
     };
-  },
+    options.define = {
+      'process.env.NODE_ENV': '"production"'
+    };
+  }
 });

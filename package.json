@@ -1,15 +1,19 @@
 {
   "name": "liteflow",
-  "private": true,
   "version": "0.0.1",
+  "private": true,
   "workspaces": [
-    "packages/features/*",
-    "packages/core",
+    "packages/*",
     "examples/*"
   ],
   "scripts": {
-    "dev": "npm run dev --workspaces --if-present",
     "build": "npm run build --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present"
+    "dev": "npm run dev --workspace=basic-example",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
   }
 }
