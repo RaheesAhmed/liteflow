@@ -24,35 +24,35 @@ function App() {
 
   return (
     <div className="container mx-auto p-4 space-y-4">
-      <h1 className="text-2xl font-bold mb-4">Welcome to LiteFlow!</h1>
+      <h1 className="text-2xl font-bold mb-4">LiteFlow UI Components</h1>
 
       {/* Alert Component */}
       {showAlert && (
         <Alert variant="default" onClose={() => setShowAlert(false)}>
           <AlertTitle>Success!</AlertTitle>
           <AlertDescription>
-            Your LiteFlow app is running successfully.
+            Your action was completed successfully.
           </AlertDescription>
         </Alert>
       )}
 
       {/* Avatar Component */}
       <div className="space-y-2">
-        <h2 className="text-xl font-semibold">Avatar Component</h2>
+        <h2 className="text-xl font-semibold">Avatar</h2>
         <Avatar>
-          <AvatarImage src="https://github.com/liteflow.png" alt="@liteflow" />
-          <AvatarFallback>LF</AvatarFallback>
+          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+          <AvatarFallback>CN</AvatarFallback>
         </Avatar>
       </div>
 
       {/* Aspect Ratio Component */}
       <div className="space-y-2">
-        <h2 className="text-xl font-semibold">Aspect Ratio Component</h2>
+        <h2 className="text-xl font-semibold">Aspect Ratio</h2>
         <div className="w-[450px]">
           <AspectRatio ratio={16 / 9}>
             <img
               src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
-              alt="Landscape"
+              alt="Photo"
               className="rounded-md object-cover w-full h-full"
             />
           </AspectRatio>
@@ -61,23 +61,22 @@ function App() {
 
       {/* Alert Dialog Component */}
       <div className="space-y-2">
-        <h2 className="text-xl font-semibold">Alert Dialog Component</h2>
+        <h2 className="text-xl font-semibold">Alert Dialog</h2>
         <AlertDialog>
           <AlertDialogTrigger asChild>
             <Button variant="default">Open Dialog</Button>
           </AlertDialogTrigger>
           <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>Welcome to LiteFlow</AlertDialogTitle>
+            <AlertDialogHeader className="space-y-2">
+              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
               <AlertDialogDescription>
-                LiteFlow is a modern web framework designed for building fast,
-                scalable, and beautiful web applications. Start building your
-                next great idea with LiteFlow!
+                This action cannot be undone. This will permanently delete your
+                account and remove your data from our servers.
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel>Close</AlertDialogCancel>
-              <AlertDialogAction>Get Started</AlertDialogAction>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction>Continue</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
@@ -91,22 +90,6 @@ function App() {
       >
         Show Alert
       </Button>
-
-      {/* Documentation Link */}
-      <div className="mt-8 text-center">
-        <p className="text-sm text-gray-600">
-          Edit <code className="font-mono bg-gray-100 p-1">src/App.tsx</code>{" "}
-          and save to test HMR updates.
-        </p>
-        <a
-          href="https://docs.liteflow.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 hover:text-blue-600 mt-2 inline-block"
-        >
-          Learn LiteFlow
-        </a>
-      </div>
     </div>
   );
 }
