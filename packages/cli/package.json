@@ -1,6 +1,6 @@
 {
   "name": "create-liteflow-app",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Create LiteFlow apps with one command - The Modern Web Framework",
   "type": "module",
   "bin": "dist/index.js",
