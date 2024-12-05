@@ -2,22 +2,10 @@ import { defineConfig } from "tsup";
 
 export default defineConfig({
   entry: ["src/index.ts"],
-  format: ["cjs"],
-  clean: true,
-  minify: false,
-  splitting: false,
-  sourcemap: true,
-  shims: true,
+  format: ["esm"],
   dts: true,
-  platform: "node",
+  clean: true,
+  minify: true,
   target: "node18",
-  noExternal: [
-    "chalk",
-    "commander",
-    "execa",
-    "fs-extra",
-    "gradient-string",
-    "inquirer",
-    "ora",
-  ],
+  outDir: "dist",
 });

@@ -1,11 +1,9 @@
 {
   "name": "create-liteflow-app",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Create LiteFlow apps with one command - The Modern Web Framework",
   "type": "module",
-  "bin": {
-    "create-liteflow-app": "dist/index.js"
-  },
+  "bin": "dist/index.js",
   "files": [
     "dist",
     "templates"
@@ -36,6 +34,10 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
     "liteflow",
