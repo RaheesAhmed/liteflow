@@ -52,6 +52,20 @@ LiteFlow is a revolutionary web framework designed to make web development faste
 
 ### Key Features 🎯
 
+Usage
+
+# Using npm
+
+npx create-liteflow my-app
+
+# Using yarn
+
+yarn create liteflow my-app
+
+# Using pnpm
+
+pnpm create liteflow my-app
+
 #### 1. Core Features (Zero Config)
 
 - **LiteState**: Intuitive state management

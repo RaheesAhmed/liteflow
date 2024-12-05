@@ -14,6 +14,76 @@ const __dirname = path.dirname(__filename);
 
 const program = new Command();
 
+// Check if package manager is installed
+async function isPackageManagerInstalled(packageManager: string) {
+  try {
+    await execa(packageManager, ["--version"]);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+// Install package manager if needed
+async function ensurePackageManager(packageManager: string) {
+  if (await isPackageManagerInstalled(packageManager)) {
+    return true;
+  }
+
+  console.log(
+    chalk.yellow(
+      `\n${packageManager} is not installed. Installing it globally...\n`
+    )
+  );
+
+  try {
+    if (packageManager === "pnpm") {
+      await execa("npm", ["install", "-g", "pnpm"]);
+    } else if (packageManager === "yarn") {
+      await execa("npm", ["install", "-g", "yarn"]);
+    }
+    return true;
+  } catch (error) {
+    console.error(
+      chalk.red(
+        `Failed to install ${packageManager}. Please install it manually.`
+      )
+    );
+    return false;
+  }
+}
+
+// Install dependencies using the selected package manager
+async function installDependencies(projectDir: string, packageManager: string) {
+  const spinner = ora({
+    text: "Installing dependencies...",
+    spinner: "dots",
+  }).start();
+
+  try {
+    // Ensure the package manager is installed
+    if (!(await ensurePackageManager(packageManager))) {
+      spinner.fail("Failed to ensure package manager");
+      return false;
+    }
+
+    // Run the install command
+    await execa(packageManager, ["install"], {
+      cwd: projectDir,
+      stdio: "pipe", // Capture output
+    });
+
+    spinner.succeed("Dependencies installed successfully!");
+    return true;
+  } catch (error) {
+    spinner.fail("Failed to install dependencies");
+    if (error instanceof Error) {
+      console.error(chalk.red("\nError details:"), error.message);
+    }
+    return false;
+  }
+}
+
 // ASCII art banner
 const banner = `
 ██╗     ██╗████████╗███████╗███████╗██╗      ██████╗ ██╗    ██╗
@@ -30,7 +100,7 @@ console.log(chalk.cyan("Welcome to LiteFlow - The Modern Web Framework\n"));
 program
   .name("create-liteflow")
   .description("Create a new LiteFlow application")
-  .version("0.1.1")
+  .version("0.1.3")
   .argument("[directory]", "Directory to create the project in")
   .action(async (directory) => {
     const answers = await inquirer.prompt([
@@ -102,32 +172,41 @@ program
       spinner.succeed("Project created successfully!");
 
       // Install dependencies
-      spinner.start("Installing dependencies...");
-      const installCommand =
-        answers.packageManager === "npm" ? "install" : "install";
-      await execa(answers.packageManager, [installCommand], {
-        cwd: projectDir,
-        stdio: "ignore",
-      });
-
-      spinner.succeed("Dependencies installed successfully!");
-
-      // Show success message
-      console.log(
-        "\n" +
-          chalk.green("Success!") +
-          " Created " +
-          chalk.cyan(answers.projectName) +
-          " at " +
-          chalk.cyan(projectDir)
+      const installSuccess = await installDependencies(
+        projectDir,
+        answers.packageManager
       );
-      console.log("\nNext steps:");
-      console.log(chalk.cyan(`  cd ${answers.projectName}`));
-      console.log(chalk.cyan(`  ${answers.packageManager} run dev`));
-      console.log("\nHappy coding! 🚀\n");
+
+      if (installSuccess) {
+        // Show success message
+        console.log(
+          "\n" +
+            chalk.green("Success!") +
+            " Created " +
+            chalk.cyan(answers.projectName) +
+            " at " +
+            chalk.cyan(projectDir)
+        );
+        console.log("\nNext steps:");
+        console.log(chalk.cyan(`  cd ${answers.projectName}`));
+        console.log(chalk.cyan(`  ${answers.packageManager} run dev`));
+        console.log("\nHappy coding! 🚀\n");
+      } else {
+        console.log(
+          "\n" +
+            chalk.yellow(
+              "Project created but dependencies installation failed."
+            )
+        );
+        console.log("\nTry installing dependencies manually:");
+        console.log(chalk.cyan(`  cd ${answers.projectName}`));
+        console.log(chalk.cyan(`  ${answers.packageManager} install`));
+      }
     } catch (error) {
       spinner.fail("Failed to create project");
-      console.error(chalk.red("Error:"), error);
+      if (error instanceof Error) {
+        console.error(chalk.red("\nError details:"), error.message);
+      }
       process.exit(1);
     }
   });

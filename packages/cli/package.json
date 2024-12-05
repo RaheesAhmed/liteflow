@@ -1,6 +1,6 @@
 {
   "name": "create-liteflow",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Create LiteFlow apps with one command",
   "bin": {
     "create-liteflow": "./bin/create-liteflow.cmd"
