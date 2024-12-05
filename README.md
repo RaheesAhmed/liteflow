@@ -56,15 +56,15 @@ Usage
 
 # Using npm
 
-npx create-liteflow my-app
+`npx create-liteflow my-app`
 
 # Using yarn
 
-yarn create liteflow my-app
+`yarn create liteflow my-app`
 
 # Using pnpm
 
-pnpm create liteflow my-app
+`pnpm create liteflow my-app`
 
 #### 1. Core Features (Zero Config)
 

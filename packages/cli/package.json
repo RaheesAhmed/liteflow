@@ -1,35 +1,33 @@
 {
   "name": "create-liteflow-app",
-  "version": "0.2.2",
+  "version": "0.2.11",
   "description": "Create LiteFlow apps with one command - The Modern Web Framework",
-  "type": "module",
-  "bin": "dist/index.js",
+  "type": "commonjs",
+  "bin": {
+    "create-liteflow-app": "./dist/index.js"
+  },
   "files": [
     "dist",
     "templates"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "node build.js",
+    "dev": "node build.js --watch",
     "lint": "eslint src/**/*.ts",
     "clean": "rimraf dist",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "chalk": "^5.3.0",
-    "commander": "^11.1.0",
+    "picocolors": "^1.0.0",
+    "cac": "^6.7.14",
     "execa": "^8.0.1",
-    "fs-extra": "^11.2.0",
-    "gradient-string": "^2.0.2",
-    "inquirer": "^9.2.12",
-    "ora": "^7.0.1"
+    "fs-extra": "^11.2.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
-    "@types/gradient-string": "^1.1.6",
-    "@types/inquirer": "^9.0.7",
     "@types/node": "^20.10.4",
-    "tsup": "^8.0.1",
+    "esbuild": "^0.19.9",
+    "rimraf": "^5.0.5",
     "typescript": "^5.3.3"
   },
   "engines": {
@@ -43,26 +41,11 @@
     "liteflow",
     "create-liteflow-app",
     "react",
-    "vite",
     "typescript",
-    "tailwindcss",
-    "web",
-    "framework",
-    "template",
-    "starter",
     "modern",
     "enterprise",
     "fullstack"
   ],
   "author": "LiteFlow Team",
-  "homepage": "https://liteflow.dev",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/liteflow/liteflow.git",
-    "directory": "packages/cli"
-  },
-  "bugs": {
-    "url": "https://github.com/liteflow/liteflow/issues"
-  },
   "license": "MIT"
 }

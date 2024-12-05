@@ -1,9 +1,15 @@
-// Re-export core features
-export * from './route';
+// Core exports
 export * from './state';
 export * from './fetch';
-export * from './hooks';
+export * from './route';
 export * from './render';
+export * from './hooks';
 
-// Provider component
+// Provider
 export { LiteFlowProvider } from './provider';
+
+// Types
+export type { LiteFlowConfig } from './types';
+
+// Utils
+export * as utils from './utils';
