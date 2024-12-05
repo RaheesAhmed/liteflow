@@ -1,6 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Alert,
+  AlertDescription,
+  AlertTitle,
   AlertDialog,
   AlertDialogAction,
   AlertDialogCancel,
@@ -10,72 +12,69 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
+  AspectRatio,
   Avatar,
   AvatarFallback,
   AvatarImage,
-  Calendar,
   Button,
 } from "@liteflow/ui";
 
-export default function DemoPage() {
-  const [date, setDate] = useState<Date | undefined>(new Date());
+function App() {
   const [showAlert, setShowAlert] = useState(false);
 
   return (
-    <div className="p-8 max-w-4xl mx-auto space-y-8">
-      <h1 className="text-3xl font-bold mb-8">LiteFlow UI Demo</h1>
+    <div className="container mx-auto p-4 space-y-4">
+      <h1 className="text-2xl font-bold mb-4">LiteFlow UI Components</h1>
 
-      {/* Alert Demo */}
+      {/* Alert Component */}
       {showAlert && (
-        <Alert variant="info" onClose={() => setShowAlert(false)}>
-          <p>Welcome to the LiteFlow UI demo! Explore our components below.</p>
+        <Alert variant="default" onClose={() => setShowAlert(false)}>
+          <AlertTitle>Success!</AlertTitle>
+          <AlertDescription>
+            Your action was completed successfully.
+          </AlertDescription>
         </Alert>
       )}
 
-      {/* User Profile Section */}
-      <div className="flex items-center gap-4 p-4 border rounded-lg">
+      {/* Avatar Component */}
+      <div className="space-y-2">
+        <h2 className="text-xl font-semibold">Avatar</h2>
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-          <AvatarFallback>UN</AvatarFallback>
+          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+          <AvatarFallback>CN</AvatarFallback>
         </Avatar>
-        <div>
-          <h2 className="text-xl font-semibold">John Doe</h2>
-          <p className="text-gray-600">Product Designer</p>
+      </div>
+
+      {/* Aspect Ratio Component */}
+      <div className="space-y-2">
+        <h2 className="text-xl font-semibold">Aspect Ratio</h2>
+        <div className="w-[450px]">
+          <AspectRatio ratio={16 / 9}>
+            <img
+              src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
+              alt="Photo"
+              className="rounded-md object-cover w-full h-full"
+            />
+          </AspectRatio>
         </div>
       </div>
 
-      {/* Calendar Section */}
-      <div className="border rounded-lg p-4">
-        <h2 className="text-xl font-semibold mb-4">Calendar</h2>
-        <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
-          className="rounded-md border"
-          classNames={{
-            day_selected: "bg-primary text-primary-foreground",
-            day_today: "bg-accent text-accent-foreground",
-            day: "p-3 text-center text-sm leading-none",
-          }}
-        />
-      </div>
-
-      {/* Dialog Demo */}
-      <div className="border rounded-lg p-4">
-        <h2 className="text-xl font-semibold mb-4">Dialog Demo</h2>
+      {/* Alert Dialog Component */}
+      <div className="space-y-2">
+        <h2 className="text-xl font-semibold">Alert Dialog</h2>
         <AlertDialog>
           <AlertDialogTrigger asChild>
             <Button variant="default">Open Dialog</Button>
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader className="space-y-2">
-              <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
               <AlertDialogDescription>
                 This action cannot be undone. This will permanently delete your
                 account and remove your data from our servers.
               </AlertDialogDescription>
             </AlertDialogHeader>
-            <AlertDialogFooter className="space-x-2">
+            <AlertDialogFooter>
               <AlertDialogCancel>Cancel</AlertDialogCancel>
               <AlertDialogAction>Continue</AlertDialogAction>
             </AlertDialogFooter>
@@ -89,8 +88,10 @@ export default function DemoPage() {
         onClick={() => setShowAlert(true)}
         className="mt-4"
       >
-        Show Welcome Alert
+        Show Alert
       </Button>
     </div>
   );
 }
+
+export default App;
