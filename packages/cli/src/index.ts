@@ -98,9 +98,9 @@ console.log(gradient.pastel.multiline(banner));
 console.log(chalk.cyan("Welcome to LiteFlow - The Modern Web Framework\n"));
 
 program
-  .name("create-liteflow")
+  .name("create-liteflow-app")
   .description("Create a new LiteFlow application")
-  .version("0.1.3")
+  .version("0.1.4")
   .argument("[directory]", "Directory to create the project in")
   .action(async (directory) => {
     const answers = await inquirer.prompt([
