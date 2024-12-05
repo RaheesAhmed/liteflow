@@ -1,13 +1,13 @@
 {
   "name": "create-liteflow",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create LiteFlow apps with one command",
   "bin": {
     "create-liteflow": "./bin/create-liteflow.cmd"
   },
   "files": [
     "dist",
-    "templates",
+    "templates/**",
     "bin"
   ],
   "scripts": {
@@ -15,7 +15,9 @@
     "dev": "tsup --watch",
     "start": "node bin/create-liteflow.cmd",
     "lint": "eslint src/**/*.ts",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "prepublishOnly": "pnpm run build",
+    "prepack": "cp -r ../../examples/basic templates/basic"
   },
   "dependencies": {
     "chalk": "^5.3.0",
@@ -38,7 +40,30 @@
     "node": ">=18.0.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "liteflow",
+    "create-liteflow",
+    "react",
+    "vite",
+    "typescript",
+    "tailwindcss",
+    "web",
+    "framework",
+    "template",
+    "starter"
+  ],
+  "author": "LiteFlow Team",
+  "homepage": "https://liteflow.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liteflow/liteflow.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/liteflow/liteflow/issues"
   },
   "license": "MIT"
 }

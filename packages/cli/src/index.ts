@@ -20,7 +20,7 @@ const banner = `
 ██║     ██║╚══██╔══╝██╔════╝██╔════╝██║     ██╔═══██╗██║    ██║
 ██║     ██║   ██║   █████╗  █████╗  ██║     ██║   ██║██║ █╗ ██║
 ██║     ██║   ██║   ██╔══╝  ██╔══╝  ██║     ██║   ██║██║███╗██║
-███████╗██║   ██║   ████████╗██║     ███████╗╚██████╔╝╚███╔███╔╝
+███████╗██║   ██║   ███████╗██║     ███████╗╚██████╔╝╚███╔███╔╝
 ╚══════╝╚═╝   ╚═╝   ╚══════╝╚═╝     ╚══════╝ ╚═════╝  ╚══╝╚══╝ 
 `;
 
@@ -30,7 +30,7 @@ console.log(chalk.cyan("Welcome to LiteFlow - The Modern Web Framework\n"));
 program
   .name("create-liteflow")
   .description("Create a new LiteFlow application")
-  .version("0.1.0")
+  .version("0.1.1")
   .argument("[directory]", "Directory to create the project in")
   .action(async (directory) => {
     const answers = await inquirer.prompt([
@@ -69,7 +69,8 @@ program
     const projectDir = path.resolve(process.cwd(), answers.projectName);
     const templateDir = path.resolve(
       __dirname,
-      "../templates",
+      "..",
+      "templates",
       answers.template
     );
 
@@ -82,10 +83,15 @@ program
       // Create project directory
       await fs.ensureDir(projectDir);
 
+      // Check if template exists
+      if (!(await fs.pathExists(templateDir))) {
+        throw new Error(
+          `Template '${answers.template}' not found. Only the 'basic' template is currently available.`
+        );
+      }
+
       // Copy template
-      await fs.copy(templateDir, projectDir, {
-        filter: (src) => !src.includes("node_modules"),
-      });
+      await fs.copy(templateDir, projectDir);
 
       // Update package.json
       const packageJsonPath = path.join(projectDir, "package.json");
