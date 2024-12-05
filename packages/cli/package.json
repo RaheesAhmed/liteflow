@@ -1,6 +1,6 @@
 {
   "name": "create-liteflow",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Create LiteFlow apps with one command",
   "bin": {
     "create-liteflow": "./bin/create-liteflow.cmd"
@@ -15,9 +15,9 @@
     "dev": "tsup --watch",
     "start": "node bin/create-liteflow.cmd",
     "lint": "eslint src/**/*.ts",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist templates/basic",
     "prepublishOnly": "pnpm run build",
-    "prepack": "cp -r ../../examples/basic templates/basic"
+    "prepack": "node -e \"const fs=require('fs-extra');const path=require('path');fs.removeSync('templates/basic');fs.copySync('../../examples/basic',path.join('templates','basic'),{filter:src=>!src.includes('node_modules')})\""
   },
   "dependencies": {
     "chalk": "^5.3.0",
