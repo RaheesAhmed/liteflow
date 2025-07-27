@@ -23,7 +23,7 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint \"src/**/*.ts*\"",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    "clean": "rimraf .turbo && rimraf node_modules && rimraf dist"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.1.2",
