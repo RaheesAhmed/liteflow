@@ -1,6 +1,6 @@
 # LiteFlow App
 
-This project was bootstrapped with [LiteFlow](https://github.com/yourusername/liteflow).
+This project was bootstrapped with [LiteFlow](https://github.com/raheesahmed/liteflow).
 
 ## Available Scripts
 
@@ -28,7 +28,7 @@ Your app is ready to be deployed!
 
 ## Learn More
 
-To learn more about LiteFlow, check out the [LiteFlow documentation](https://github.com/yourusername/liteflow).
+To learn more about LiteFlow, check out the [LiteFlow documentation](https://github.com/raheesahmed/liteflow).
 
 ## Project Structure
 

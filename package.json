@@ -1,15 +1,145 @@
 {
   "name": "liteflow",
   "version": "0.1.0",
+  "description": "LiteFlow - Modern, lightweight web framework with zero vendor lock-in",
+  "private": true,
+  "type": "module",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "packages/features/*"
   ],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
+    "build:cli": "npm run build --workspace=@liteflow/cli",
+    "build:core": "npm run build --workspace=@liteflow/core",
+    "build:ui": "npm run build --workspace=@liteflow/ui",
     "dev": "npm run dev --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present"
+    "dev:cli": "npm run dev --workspace=@liteflow/cli",
+    "dev:core": "npm run dev --workspace=@liteflow/core",
+    "dev:ui": "npm run dev --workspace=@liteflow/ui",
+    "test": "npm run test --workspaces --if-present",
+    "test:cli": "npm run test --workspace=@liteflow/cli",
+    "test:core": "npm run test --workspace=@liteflow/core",
+    "test:watch": "npm run test:watch --workspace=@liteflow/core",
+    "test:coverage": "npm run test:coverage --workspace=@liteflow/core",
+    "lint": "npm run lint --workspaces --if-present",
+    "lint:ui": "npm run lint --workspace=@liteflow/ui",
+    "clean": "npm run clean --workspaces --if-present && rm -rf node_modules && rm -rf .turbo",
+    "clean:ui": "npm run clean --workspace=@liteflow/ui",
+    "prepublishOnly": "npm run build",
+    "preview": "vite preview",
+    "create-app": "node packages/cli/dist/index.js create"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.12.2",
+    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-alert-dialog": "^1.1.2",
+    "@radix-ui/react-aspect-ratio": "^1.1.0",
+    "@radix-ui/react-avatar": "^1.1.1",
+    "@radix-ui/react-checkbox": "^1.1.2",
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "chalk": "^5.3.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "commander": "^11.1.0",
+    "events": "^3.3.0",
+    "fs-extra": "^11.2.0",
+    "glob": "^10.3.10",
+    "immer": "^10.0.3",
+    "inquirer": "^9.2.12",
+    "lucide-react": "^0.465.0",
+    "ora": "^7.0.1",
+    "picocolors": "^1.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1",
+    "reselect": "^4.1.8",
+    "tailwind-merge": "^2.5.5",
+    "vite": "^5.0.4",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "typescript": "^5.3.2"
-  }
+    "@edge-runtime/ponyfill": "^4.0.0",
+    "@edge-runtime/primitives": "^6.0.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@types/events": "^3.0.3",
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^9.0.7",
+    "@types/jest": "^29.5.10",
+    "@types/node": "^20.10.3",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "msw": "^2.6.6",
+    "node-fetch": "^2.7.0",
+    "postcss": "^8.4.32",
+    "rimraf": "^5.0.5",
+    "tailwindcss": "^3.3.5",
+    "ts-jest": "^29.1.1",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.2",
+    "vitest": "^0.34.6"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.2.0"
+  },
+  "bin": {
+    "liteflow": "./packages/cli/dist/index.js",
+    "create-liteflow": "./packages/cli/bin/create-liteflow"
+  },
+  "files": [
+    "packages/**/dist",
+    "packages/**/templates",
+    "docs"
+  ],
+  "keywords": [
+    "liteflow",
+    "framework",
+    "react",
+    "typescript",
+    "vite",
+    "cli",
+    "ui",
+    "components",
+    "state-management",
+    "routing",
+    "web-framework",
+    "zero-vendor-lock-in",
+    "developer-experience",
+    "performance",
+    "tailwind",
+    "shadcn"
+  ],
+  "author": "Rahees Ahmed",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RaheesAhmed/liteflow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RaheesAhmed/liteflow/issues"
+  },
+  "homepage": "https://github.com/RaheesAhmed/liteflow#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@8.0.0"
 }
